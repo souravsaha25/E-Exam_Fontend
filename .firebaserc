@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "e-exam-angular": {
+      "hosting": {
+        "TimeSheet": [
+          "e-exam-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "e-exam-angular"
+  }
+}

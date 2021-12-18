@@ -1,0 +1,10 @@
+.radius-top{
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.btnQNoHW{
+  max-width: 50px;
+  min-width: 50px;
+  min-height: 50px;
+}

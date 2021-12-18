@@ -1,0 +1,15 @@
+<div class="backGround h-100 pt-5">
+  <div class="card m-auto w-50 login-card bg-light">
+    <div class="text-center my-2">
+      <img nz-image width="300px" height="300px" nzSrc="assets/images/login.png" alt="login-card" />
+    </div>
+    <nz-alert nzType="success" nzMessage="Success" [hidden]="error"
+      nzDescription="your account is activate Successfully! Click here to login" nzShowIcon class="mx-2">
+    </nz-alert>
+
+    <nz-alert nzType="error" nzMessage="Error" [hidden]="!error" nzDescription="Your account not activated!"
+      nzShowIcon></nz-alert>
+
+    <a [routerLink]="['/Login']" class="my-4 btn btn-success col-4 m-auto" [hidden]="error">Login</a>
+  </div>
+</div>

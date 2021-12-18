@@ -1,0 +1,14 @@
+<div>
+  <div nz-row nzJustify="center">
+    <div class="card col-md-3 m-3" *ngFor="let item of listOfExamType">
+      <div class="card-header">
+        {{item.typeName}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Exam</h5>
+        <p class="card-text">{{item.description}}</p>
+        <a class="btn btn-primary" [routerLink]="['/SpecificTypeExamList']" [queryParams]="{ tid: item.id }"> View All Exams</a>
+      </div>
+    </div>
+  </div>
+</div>

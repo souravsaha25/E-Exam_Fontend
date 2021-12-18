@@ -1,0 +1,48 @@
+<div class="card col-lg-10 mx-auto mt-5">
+  <div class="card-header">
+    <h1 class="my-2">Your Exam Result</h1>
+  </div>
+  <div class="card-body">
+    <div class="row col-12 mx-0">
+      <div class="col-4 mt-2">
+        <nz-progress nzType="circle" [nzPercent]="examResult.percentage"
+          [nzStrokeColor]="{ '0%': '#108ee9', '50%': '#2db7f5', '100%': '#87d068' }"></nz-progress>
+      </div>
+      <div class="col-8">
+        <div class="row">
+          <label class="mb-1 fs-6 col-7">Exam Name-</label>
+          <span class="mb-1 fw-bold col-5 float-start fs-6">{{examResult.examName}}</span>
+        </div>
+        <div class="row">
+          <label class="mb-1 fs-6 col-7">Total Question-</label>
+          <span class="mb-1 fw-bold col-5 float-start fs-6">{{examResult.totalQus}}</span>
+        </div>
+        <div class="row">
+          <label class="mb-1 fs-6 col-7">Total Answer-</label>
+          <span class="mb-1 fw-bold col-5 float-start fs-6">{{examResult.totalAns}}</span>
+        </div>
+        <div class="row">
+          <label class="mb-1 fs-6 col-7">Total Wrong Answer-</label>
+          <span class="mb-1 fw-bold col-5 float-start fs-6 text-danger">{{examResult.totalWrongAns}}</span>
+        </div>
+        <div class="row">
+          <label class="mb-1 fs-6 col-7">Total Right Answer-</label>
+          <span class="mb-1 fw-bold col-5 float-start fs-6 text-success">{{examResult.totalRightAns}}</span>
+        </div>
+        <div class="row">
+          <label class="mb-1 fs-6 col-7">Total Marks Obtain-</label>
+          <span class="mb-1 fw-bold col-5 float-start fs-6">{{examResult.marks | number:'0.1-2'}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary float-end btn-sm mx-4" [routerLink]="['/ExamAnalysis']" [queryParams]="{ eid: examResult.examID }">
+      Exam Analysis
+    </button>
+    <button class="btn btn-secondary float-end btn-sm" [routerLink]="['/ExamType']">
+      Go To All Exam
+    </button>
+  </div>
+</div>

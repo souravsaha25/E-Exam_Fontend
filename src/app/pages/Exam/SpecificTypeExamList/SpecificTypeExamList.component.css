@@ -1,0 +1,54 @@
+table {
+  width: 100%;
+  background-color: white;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  color: black;
+  border: 1px solid rgb(215, 215, 221);
+  text-align: center;
+  justify-content: center;
+
+}
+
+.paginator{
+  background-color: white;
+  color: black;
+}
+
+::ng-deep .mat-select-value{
+  color: rgb(92, 92, 216) !important;
+}
+::ng-deep .mat-select-arrow {
+  color: rgb(92, 92, 216) !important;
+}
+::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: rgb(92, 92, 216) !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: rgb(92, 92, 216) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: rgb(92, 92, 216) !important;;
+}
+
+::ng-deep.mat-sort-header-content{
+  margin: auto;
+  color: white;
+}
+
+::ng-deep.mat-header-row{
+  background-color: rgb(92, 92, 216);
+
+}
+

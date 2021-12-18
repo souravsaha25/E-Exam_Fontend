@@ -1,0 +1,31 @@
+<div class="card col-6 mx-auto mt-5">
+  <div class="card-header">
+    <h1 class="my-2">{{ExamData.examName}}</h1>
+  </div>
+  <div class="card-body">
+    <div class="row my-2">
+      <div class="col-6">Topic:-</div>
+      <div class="col-6">{{ExamData.typeName}}</div>
+    </div>
+    <div class="row my-2">
+      <div class="col-6">Description:-</div>
+      <div class="col-6">{{ExamData.description}}</div>
+    </div>
+    <div class="row my-2">
+      <div class="col-6">Total Question:-</div>
+      <div class="col-6">{{ExamData.totalQus}}</div>
+    </div>
+    <div class="row my-2">
+      <div class="col-6">Time(Min):-</div>
+      <div class="col-6">{{ExamData.time.totalMinutes}}</div>
+    </div>
+    <div class="row my-2">
+      <div class="col-6">Total Marks:-</div>
+      <div class="col-6">{{ExamData.marks}}</div>
+    </div>
+    <button class="btn btn-success float-end" (click)="startExam(ExamData.id);">
+      <fa-icon [icon]="icon" title="Click to start"></fa-icon>
+      Start Exam
+    </button>
+  </div>
+</div>

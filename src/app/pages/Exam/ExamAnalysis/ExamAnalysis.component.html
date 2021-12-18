@@ -1,0 +1,40 @@
+<h1>Your Exam Report</h1>
+<div class="card" id="pdfDiv">
+  <h2 class="card-header">
+    <span>Exam:-</span>
+    <span class="mx-2">{{examResultAnalysis.ExamName}}</span>&nbsp;|&nbsp;
+    <span class="ml-3">Total Marks:-</span>
+    <span class="mx-2">{{examResultAnalysis.TotalMarks}}</span>&nbsp;|&nbsp;
+    <span class="ml-3">Time:-</span>
+    <span class="mx-2">{{examResultAnalysis.Time}}</span>&nbsp;|&nbsp;
+    <span class="ml-3">Your Marks:-</span>
+    <span class="mx-2">{{examResultAnalysis.Marks}}</span>
+    <button class="btn btn-primary rounded-pill float-end" id="pdfBtn" (click)="generatePDF()">
+      <fa-icon [icon]="print" title="Click to print"></fa-icon>&nbsp; PDF
+    </button>
+  </h2>
+  <div class="ScrollStyle" id="QADiv">
+    <div *ngFor="let item of examResultAnalysis.QusAnsList let indexOfelement=index;" class="card-body">
+      <h3 class="mr-5">
+        <span class="fw-bolder">Q.{{indexOfelement+1}}) </span><span>{{item.Question}}</span>
+        <span class="float-end mr-5">
+          <span class="fs-5 text-success mx-1">
+            <fa-icon [icon]="right" title="correct"></fa-icon>
+          </span><span class="fs-5">=1</span>
+          <span class="fs-5 text-danger mx-1">
+            <fa-icon [icon]="wrong" title="correct"></fa-icon>
+          </span><span class="fs-5">=-0.3</span>
+        </span>
+      </h3>
+      <h3>Options:- <span class="mx-4">a) {{item.Option1}}</span><span class="mx-4">b) {{item.Option2}}</span><span
+          class="mx-4">c)
+          {{item.Option3}}</span><span class="mx-4">d) {{item.Option4}}</span></h3>
+      <h3><span class="fw-bold"
+          [ngClass]="{'text-danger':item.GivenAnswer!=item.Answer, 'text-success':item.Answer==item.Answer}">Your
+          Answer:- </span>{{item.GivenAnswer}}</h3>
+      <h3><span class="fw-bold text-success">Correct Answer:- </span>{{item.Answer}}</h3>
+      <h3><span class="fw-bold">Explanation:- </span>{{item.Explanation}}</h3>
+      <hr>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div nz-row>
+  <div class="card col-12">
+    <h3 class="card-header row">
+      <div class="col-md-6">
+        <span class="bold">Exam:-</span>
+        <span class="mx-5">{{examData.description}}</span>
+      </div>
+      <div class="col-md-6">
+        <span class="bold">Topic:-</span>
+        <span class="mx-5">{{examData.typeName}}</span>
+      </div>
+    </h3>
+    <div nz-row>
+      <div class="card-body col-8">
+        <app-QusOptions [QA_Data]="CurrentQAData" [QA_List]="QAList"></app-QusOptions>
+        <button class="btn btn-primary mt-5 mx-auto btnHW"
+          nz-popconfirm
+          nzPopconfirmTitle="Are you sure submit exam?"
+          (nzOnConfirm)="confirmSubmit()"
+          (nzOnCancel)="cancel()"
+          nzPopconfirmPlacement="right"
+          nz-butto>Submit
+        </button>
+      </div>
+      <div class="col-4">
+        <div class="card m-3">
+          <h3 class="card-header col-lg-12"><label class="bold col-lg-6">Candidate Name:-</label><label class="col-lg-6">{{Name}}</label></h3>
+          <div class="card-body text-center">
+            <label class="card-text my-2 fs-3 text-primary">Time Left:</label>&nbsp;
+            <countdown class="text-success fs-3" [config]="config" (event)="handleEvent($event)"></countdown>
+          </div>
+        </div>
+        <div class="card m-3">
+          <h3 class="card-header"><span class="bold">Answer Type</span></h3>
+          <div class="card-body">
+            <div class="col-md-12 my-2">
+              <label class="py-2 px-4 btn-danger rounded-2 col-md-2 text-center">#</label>&emsp;:&emsp;<label class="col-md-6">Not Answer</label>
+            </div>
+            <div class="col-md-12 my-2">
+              <label class="py-2 px-4 btn-success rounded-pill col-md-2 text-center">#</label>&emsp;:&emsp;<label class="col-md-6">Answer</label>
+            </div>
+            <div class="col-md-12 my-2">
+              <label class="py-2 px-4 btn-primary rounded-circle col-md-2 text-center">#</label>&emsp;:&emsp;<label class="col-md-6">Answer and Review</label>
+            </div>
+            <div class="col-md-12 my-2">
+              <label class="py-2 px-4 btn-info radius-top col-md-2 text-center">#</label>&emsp;:&emsp;<label class="col-md-6">Not Answer Review</label>
+            </div>
+          </div>
+        </div>
+        <div class="card mx-3 mb-3">
+          <h3 class="card-header">Questions No.</h3>
+          <div class="card-body">
+            <app-QusNumber [QA_List]="QAList"></app-QusNumber>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

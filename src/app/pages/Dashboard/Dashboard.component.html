@@ -1,0 +1,18 @@
+<div class="row col-12">
+  <div id="TotalExamCard" class="card col-5">
+    <div id="TotalExamChart">
+      <h2 class="text-center">Total Number of Exam</h2>
+      <apx-chart class="" [series]="TotalExamData.series" [chart]="TotalExamData.chart"
+        [plotOptions]="TotalExamData.plotOptions" [labels]="TotalExamData.labels" [stroke]="TotalExamData.stroke"
+        [fill]="TotalExamData.fill"></apx-chart>
+    </div>
+  </div>
+  <div id="TotalExamCard" class="card col-5 mx-3">
+    <div id="TotalExamChart">
+      <h2 class="text-center">Total Number of Exam Attend</h2>
+      <apx-chart class="" [series]="TotalAttendExamData.series" [chart]="TotalAttendExamData.chart"
+        [plotOptions]="TotalAttendExamData.plotOptions" [labels]="TotalAttendExamData.labels" [stroke]="TotalAttendExamData.stroke"
+        [fill]="TotalAttendExamData.fill"></apx-chart>
+    </div>
+  </div>
+</div>

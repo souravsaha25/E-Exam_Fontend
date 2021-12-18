@@ -1,0 +1,9 @@
+<div class="text-center">
+  <button *ngFor="let item of QA_List" class="col-2 btn mx-1 my-2 btnQNoHW"
+    [ngClass]="{'btn-danger rounded-2':item.Response==0,
+                'btn-success rounded-pill':item.Response==1,
+                'btn-primary rounded-circle':item.Response==2,
+                'btn-info radius-top':item.Response==3}"
+    value={{item.QusNo}} (click)=ChangeQus(item.QusNo)>{{item.QusNo}}
+  </button>
+</div>
