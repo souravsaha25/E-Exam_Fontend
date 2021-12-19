@@ -5,6 +5,7 @@ import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzUploadFile } from 'ng-zorro-antd/upload';
 import { Observable, Observer } from 'rxjs';
+import { CommonClass } from 'src/app/helper/CommonClass';
 import { UserModule } from 'src/app/Model/UserModule';
 import { UserService } from 'src/app/Services/user.service';
 
@@ -21,7 +22,6 @@ export class RegisterComponent implements OnInit {
   error = true;
   success = true;
   avatarUrl?: string;
-
   selectedGender: string = "";
   user!: UserModule;
   data!: any;
@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router,
     private msg: NzMessageService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private commonClass: CommonClass) { }
 
 
   ngOnInit(): void {
@@ -48,7 +49,7 @@ export class RegisterComponent implements OnInit {
       name: [null, [Validators.required]],
       email: [null, [Validators.email, Validators.required]],
       address: [null],
-      password: [null, [Validators.required,Validators.minLength]],
+      password: [null, [Validators.required, Validators.minLength]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
       phoneNumberPrefix: ['+91'],
       phoneNumber: [null, [Validators.required]],
@@ -109,6 +110,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.validateForm.valid) {
+      this.commonClass.loaderStart('Submitting...');
       this.userService.registerUser(this.AdduserData()).subscribe(
         (response) => {
           this.data = response;
@@ -117,8 +119,10 @@ export class RegisterComponent implements OnInit {
           this.error = true;
           this.success = false;
           this.successMgs = "Register Successfully! Please check your email for active your account."
+          this.commonClass.loaderStop();
         },
         (error) => {
+          this.commonClass.loaderStop();
           this.error = false;
           this.errorMgs = error.error;
         });
@@ -183,4 +187,5 @@ export class RegisterComponent implements OnInit {
         break;
     }
   }
+
 }

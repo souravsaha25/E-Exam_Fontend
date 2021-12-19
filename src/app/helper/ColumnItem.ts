@@ -1,5 +1,4 @@
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
-import { UserModule } from '../Model/UserModule';
 
 export interface ColumnItem {
   name: string;

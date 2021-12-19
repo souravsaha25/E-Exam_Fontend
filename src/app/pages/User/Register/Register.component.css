@@ -18,7 +18,7 @@ nz-alert {
   max-width: 700px;
 }
 .backGround{
-  min-height: 100%;
+  min-height: 100vh;
   background-image: url('/assets/images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;

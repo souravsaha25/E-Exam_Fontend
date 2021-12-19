@@ -1,9 +1,8 @@
 <div class="bg-dark py-5 backGround">
-  <div class="login-form card m-auto w-75 login-card bg-light">
-    <div class="text-center mb-2">
-      <img nz-image width="300px" height="300px" nzSrc="assets/images/login.png" alt="login-card" />
+  <div class="login-form card m-auto col-lg-8 login-card bg-light">
+    <div class="text-center my-2">
+      <img nz-image width="100px" class="img-fluid" nzSrc="assets/images/login.png" alt="login-card" />
     </div>
-
     <nz-alert nzType="error" nzMessage="Error" [hidden]="error"
     nzDescription="{{errorMgs}}" nzShowIcon></nz-alert>
 
@@ -114,6 +113,7 @@
           <button nzType="primary" class="btn btn-success">Submit</button>
           <button class="mx-md-2" nzType="primary" (click)="resetForm($event)" class="btn btn-danger mx-2">Reset</button>
         </nz-form-control>
+        <a [routerLink]="['/Login']"><-- Go to Login </a>
       </nz-form-item>
       <!-- <nz-upload class="avatar-uploader" nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76" nzName="avatar"
         nzListType="picture-card" [nzShowUploadList]="false" [nzBeforeUpload]="beforeUpload"

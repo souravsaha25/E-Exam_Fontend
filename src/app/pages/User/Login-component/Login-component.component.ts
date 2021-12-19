@@ -3,9 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Login } from 'src/app/Model/Login';
 import { AuthService } from 'src/app/Services/auth.service';
-import { UserModule } from '../../../Model/UserModule';
 import { CookieService } from 'ngx-cookie-service';
-import { Request } from 'express';
+import { CommonClass } from 'src/app/helper/CommonClass';
 
 @Component({
   selector: 'app-Login-component',
@@ -25,7 +24,8 @@ export class LoginComponentComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private _cookieService: CookieService) {
+    private _cookieService: CookieService,
+    private commonClass: CommonClass) {
     if (_cookieService.get('remember') !== undefined) {
       if (_cookieService.get('remember')) {
         this.login = {} as Login;
@@ -59,6 +59,7 @@ export class LoginComponentComponent implements OnInit {
     }
 
     if (this.validateForm.valid) {
+      this.commonClass.loaderStart('Login...');
       this.rem = this.validateForm.controls['remember'].value;
       this.login = {} as Login;
       this.login.UserName = this.validateForm.controls['userName'].value;
@@ -77,6 +78,7 @@ export class LoginComponentComponent implements OnInit {
       (response) => {
         this.user = response;
         if (this.user) {
+          this.commonClass.loaderStop();
           sessionStorage.setItem('userRole', this.user.role);
           sessionStorage.setItem('userID', this.user.uid);
           sessionStorage.setItem('token', this.user.token);
@@ -85,12 +87,14 @@ export class LoginComponentComponent implements OnInit {
         }
         else {
           this.error = true;
+          this.commonClass.loaderStop();
         }
       },
       (error) => {
         // get the status as error.status
         if (error.status != 200) {
           this.error = true;
+          this.commonClass.loaderStop();
         };
       });
   }

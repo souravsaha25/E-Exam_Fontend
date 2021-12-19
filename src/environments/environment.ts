@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //baseUrl: 'http://eshopwebapi-test.ap-south-1.elasticbeanstalk.com/api'
-  baseUrl: 'http://localhost:32788/api'
+  baseUrl: 'http://eshopwebapi-test.ap-south-1.elasticbeanstalk.com/api'
+  //baseUrl: 'http://localhost:32788/api'
 };
 
 /*

@@ -1,41 +1,39 @@
-<div class="backGround h-100 pt-5">
-<div class="card m-auto w-50 login-card bg-light">
-  <form nz-form [formGroup]="validateForm" class="login-form m-auto w-75 my-3" (ngSubmit)="submitForm()">
-    <div class="text-center mb-2">
-      <img nz-image width="300px" height="300px" nzSrc="assets/images/login.png" alt="login-card" />
-    </div>
-    <!-- <img src="/src/assets/images/login.png" class="card-img-top" alt="login-card"> -->
-  <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your username!">
-      <nz-input-group nzPrefixIcon="user">
-        <input class="fs-5" type="text" nz-input formControlName="userName" placeholder="Username" />
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your Password!">
-      <nz-input-group nzPrefixIcon="lock">
-        <input class="fs-5" type="password" nz-input formControlName="password" placeholder="Password" />
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <div nz-row class="login-form-margin">
-    <div nz-col [nzSpan]="12">
-      <label nz-checkbox [ngModel]="false" formControlName="remember">
-        <span>Remember me</span>
-      </label>
-    </div>
-    <div nz-col [nzSpan]="12" class="d-none">
-      <a class="login-form-forgot">Forgot password</a>
-    </div>
+<div class="backGround pt-5">
+  <div class="card m-auto col-lg-6 login-card bg-light">
+    <form nz-form [formGroup]="validateForm" class="login-form m-auto w-75 my-3" (ngSubmit)="submitForm()">
+      <div class="text-center my-2">
+        <img nz-image width="200px" nzSrc="assets/images/login.png" alt="login-card" />
+      </div>
+      <!-- <img src="/src/assets/images/login.png" class="card-img-top" alt="login-card"> -->
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+          <nz-input-group nzPrefixIcon="user">
+            <input class="fs-5" type="text" nz-input formControlName="userName" placeholder="Username" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input class="fs-5" type="password" nz-input formControlName="password" placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <div nz-row class="login-form-margin">
+        <div nz-col [nzSpan]="12">
+          <label nz-checkbox [ngModel]="false" formControlName="remember">
+            <span>Remember me</span>
+          </label>
+        </div>
+        <div nz-col [nzSpan]="12" class="d-none">
+          <a class="login-form-forgot">Forgot password</a>
+        </div>
+      </div>
+      <button class="btn-lg fs-3" nz-button class="login-form-button login-form-margin" [nzType]="'primary'"><i
+          class="fs-5 " nz-icon nzType="login" nzTheme="outline"></i>Log in</button>
+      Or <a [routerLink]="['/Register']"> register now! </a>
+    </form>
+    <nz-alert nzType="error" nzMessage="Error" nzDescription="Username or password is incorrect!" nzShowIcon
+      *ngIf="error"></nz-alert>
   </div>
-  <button class="btn-lg fs-3" nz-button class="login-form-button login-form-margin" [nzType]="'primary'"><i class="fs-5 " nz-icon nzType="login" nzTheme="outline"></i>Log in</button>
-  Or <a [routerLink]="['/Register']"> register now! </a>
-</form>
-<nz-alert
-nzType="error"
-nzMessage="Error"
-nzDescription="Username or password is incorrect!"
-nzShowIcon *ngIf="error"></nz-alert>
-</div>
 </div>
